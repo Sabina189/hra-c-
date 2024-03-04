@@ -1,0 +1,10 @@
+#ifndef GAME_H
+#define GAME_H
+#include <SFML/Graphics.hpp>
+#include <vector>
+#include <string>
+#include "game.cpp"
+
+void start_game(sf::RenderWindow& window, std::string difficulty, int pejsek);
+
+#endif // GAME_H
