@@ -6,6 +6,7 @@
 #include "game.h"
 #include "assets.h"
 
+//vykreslíme pozadí a nadpisy, které budou v menu - jejich barvu, velikost, umístění
 void menu1(){
 
     sf::Color darkBlue(0, 0, 130);
@@ -100,7 +101,7 @@ void menu1(){
     int selectedCharacterIndex = -1;
 
     
-    
+    // hlavní smyčka
     while (window.isOpen()) {
         sf::Event event;
         while (window.pollEvent(event)) {
