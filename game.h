@@ -5,6 +5,7 @@
 #include <string>
 #include "game.cpp"
 
+ // sppuští start_game
 void start_game(sf::RenderWindow& window, std::string difficulty, int pejsek);
 
 #endif // GAME_H
