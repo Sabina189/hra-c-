@@ -6,7 +6,7 @@
 #include "game.h"
 #include "menu.h"
 
-
+// V případě výhry|prohry se hra ukončí
 void end(sf::RenderWindow& window, int score, int state, std::string difficulty, int pejsek){
 
     std::string text;
@@ -21,7 +21,8 @@ void end(sf::RenderWindow& window, int score, int state, std::string difficulty,
 
     sf::Color darkBlue(0, 0, 130);
     sf::Color lightBlue(173, 215, 230);
-
+    
+// vykreslení plochy a textu při skončení hry
     Assets assets;
     sf::Font font = assets.getFont();
     sf::Sprite pozadi(assets.getplochamenu());
@@ -69,16 +70,19 @@ void end(sf::RenderWindow& window, int score, int state, std::string difficulty,
             
             void start_game(sf::RenderWindow& window, std::string difficulty, int pejsek);
             void menu1();
-
+            
+// když kliknu na menu, vrátí mě to do hlavního menu
             if (event.type == sf::Event::MouseButtonPressed) {
                 if (event.mouseButton.button == sf::Mouse::Left) {
                     if (menu.getGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y)) {
                         window.close();
                         menu1();      
                     }
+// když kliknu na start_game, začnu hrát znovu se stejným charakterem a stejnou obtížností
                     if (play_again.getGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y)) {
                         start_game(window, difficulty, pejsek);
                     }
+// když kliknu na quit, ukončím celé okno
                     if (quit.getGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y)) {
                         window.close();
                     }
