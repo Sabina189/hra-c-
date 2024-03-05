@@ -3,6 +3,7 @@
 #include "menu.h"
 #include "game.cpp"
 
+//voláme menu1
 int main(){
 
   menu1();
