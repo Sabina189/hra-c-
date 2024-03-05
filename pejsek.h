@@ -6,6 +6,7 @@
 #include "assets.h"
 #include <SFML/System/Clock.hpp>
 
+// třída pro charakter pejska
 class Pejsek {
 
     private:
@@ -19,6 +20,8 @@ class Pejsek {
     void setMoveDelay(float delay) {
         moveDelay = delay;
     }
+
+// pejsek se vybere na základě zvolení v menu
     Pejsek(int druhpejska) {
         Assets assets;
         switch (druhpejska) {
@@ -40,7 +43,8 @@ class Pejsek {
     }
     std::vector <sf::Vector2i> pohyb (std::vector <sf::Vector2i> move, std::vector <sf::Vector2i> position, std::vector<std::string>& maze)
     {
-       
+
+    // Pejsek se pohybuje po ".", "x", "G" v bludišti. V případě, že dojde na "G", tak ho to teleportuje na opačné "G".
         for (size_t i = 0; i < position.size() && i < move.size(); ++i) {
         bool validmoved;
         int newX = position[i].x + move[i].x;
@@ -81,7 +85,7 @@ class Pejsek {
     return position;
 
     }
-
+ //vykreslí pejska
     void kresli ( sf::RenderWindow& window, std::vector <sf::Vector2i>& position)
     {
         int ymov, xmov;
