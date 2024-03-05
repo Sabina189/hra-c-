@@ -8,6 +8,7 @@
 #include "assets.h"
 #include "end.h"
 
+// kontroluje podmínky pro ukončení hry
 bool checkForEndCondition(const std::vector<std::string>& maze) {
     for (const auto& row : maze) {
         if (row.find('.') != std::string::npos) {
@@ -17,6 +18,7 @@ bool checkForEndCondition(const std::vector<std::string>& maze) {
     return true; 
 }
 
+// hra
 void start_game(sf::RenderWindow& window, std::string difficulty, int pejsek) {
     Assets assets;
     assets.gethra_pisnicka().play();
@@ -99,6 +101,7 @@ void start_game(sf::RenderWindow& window, std::string difficulty, int pejsek) {
     bool keypressed = false;
     bool contact = false;
 
+    // hlavní smyčka hry
     while (window.isOpen()) {
         sf::Event event;
         while (window.pollEvent(event)) {
@@ -204,11 +207,15 @@ void start_game(sf::RenderWindow& window, std::string difficulty, int pejsek) {
         
         
         window.display();
+        
+        // konec hry v případě kontaktu charakteru s duchy
         if (contact == true) {
             assets.gethra_pisnicka().stop();
             assets.getprohra_song().play();
         end(window, score, 0, difficulty, pejsek); 
         }
+        
+        // konec hry v případě sesbíraných všech "." v bludišti
         if (checkForEndCondition(maze)) {
             assets.gethra_pisnicka().stop();
             assets.getwin_song().play();
