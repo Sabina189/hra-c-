@@ -9,6 +9,7 @@
 #include <iostream>
 #include <algorithm>
 
+// třída pro duchy, jejichž počet ve hře závisí na zvolené obtížnosti
 class Duch{
     std::vector<sf::Vector2i> lastknown = { {28,1}, {16,12}, {1,28}, {16,12}, {28,1} };
     private: 
@@ -31,6 +32,7 @@ class Duch{
         return lastknown;
     }
 
+// pohyb ducha, který je random
     std::vector<sf::Vector2i> pohybduch(std::vector<sf::Vector2i> current, const std::vector<std::string>& maze) {
         std::vector<sf::Vector2i> newPositions; 
         std::vector<sf::Vector2i> directions = {
@@ -40,6 +42,7 @@ class Duch{
             sf::Vector2i(1, 0)   
         };
 
+// v bludišti se duchové pohybují pouze po "." nebo "x", nevracejí se zpět
         for (size_t i = 0; i < current.size(); ++i) {
             auto& curPos = current[i];
             std::vector<sf::Vector2i> validDirections;
@@ -68,6 +71,8 @@ class Duch{
 
         return newPositions;
     }
+
+// vrací pozici ducha na mapě
     sf::Vector2f kresliducha ( sf::Vector2i current)
     {
         int CELL_SIZE = 25;
