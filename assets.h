@@ -1,10 +1,10 @@
-// Inicializace všech používaných obrázků|zvuků ve hře.
 #ifndef ASSETS_H
 #define ASSETS_H
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 
+// Inicializace všech používaných obrázků|zvuků ve hře.
 class Assets {
 private:
     sf::Font font;
