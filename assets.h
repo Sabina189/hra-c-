@@ -1,3 +1,4 @@
+// Inicializace všech používaných obrázků|zvuků ve hře.
 #ifndef ASSETS_H
 #define ASSETS_H
 
